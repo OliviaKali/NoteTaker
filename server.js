@@ -1,43 +1,57 @@
+var connection = require("./connection");
 var express = require("express");
 var path = require("path");
-var mysql = require("mysql");
 
 var app = express();
-
-// Set the port of our application
-// process.env.PORT lets the port be set by Heroku
 var PORT = process.env.PORT || 8080;
 
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//This homework doesn't use handlebars?!
-// app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-// app.set("view engine", "handlebars");
-
-var connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "password",
-  database: "notetaker_db"
+// Connect to mysql Database- should it be res.render or res.sendFile?
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
-connection.connect(function(err) {
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
+// Connect to mysql Database?!
+app.get("/notes", function(req, res) {
+  connection.query("SELECT * FROM notes", function(err, data) {
+      console.log(data);
+    if (err) {
+      return res.status(500).end();
+    }
+
+    res.sendFile(path.join(__dirname, "notes.html"));
+   });
+});
+
+app.get("/api/notes", function (req, res) {
+  // res.sendFile(path.join(__dirname, "notes.html"));
+  connection.query("SELECT * FROM notes", function (err, data) {
+    if (err) {
+      return res.status(500).end();
+    }
+    // return res.json(notes);
+  })
+})
+
+app.post("/api/notes", function (req, res) {
+  connection.query("INSERT INTO notes (title, body) VALUES (?, ?)", [req.body.title, req.body.body], 
+  function (err, result) {
+    if (err) {
+      return res.status(500).end();
   }
+  // console.log(res);
+  // res.json(res);
+  // return res.json()
+  })
+    // var userNote = req.body;
+    // res.json(userNote);
+})
 
-  console.log("connected as id " + connection.threadId);
+// Start our server so that it can begin listening to client requests.
+app.listen(PORT, function() {
+  // Log (server-side) when our server has started
+  console.log("Server listening on: http://localhost:" + PORT);
 });
-
-
-
-
-  // Start our server so that it can begin listening to client requests.
-  app.listen(PORT, function() {
-    // Log (server-side) when our server has started
-    console.log("Server listening on: http://localhost:" + PORT);
-  });
