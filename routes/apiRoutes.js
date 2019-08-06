@@ -23,8 +23,8 @@ router.post("/api/notes", function(req, res) {
 });
 
 router.delete("/api/notes/:id", function(req, res) {
-  var deleteNote = `DELETE FROM notes WHERE id = ?`;
-  connection.query(deleteNote, req.params.id, function(err, result) {
+  var deleteNote = `DELETE FROM notes WHERE id = ${req.params.id}`;
+  connection.query(deleteNote, function(err, result) {
     if (err) throw err;
     return res.json(result);
   });
