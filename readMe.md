@@ -4,6 +4,6 @@ Note Taker is an application that allows the user to read, create/save, and dele
 
 https://notes-taker-app.herokuapp.com/
 
-##Technologies Used
+## Technologies Used
 
 Built with Node, Express, and MySQL.
