@@ -1,5 +1,3 @@
-
-// write display function
 function displayNotes() {
   $.ajax({
     url: "/api/notes",
@@ -40,12 +38,6 @@ $(document).on("click", ".delete-note" ,function(event) {
     }
   )
 })
-// })
-// click function for delete
-
-// var id = $(this).val()
-// url: "/api/notes/" + id,
-//
 
 function getNotes() {
   $.ajax({
@@ -54,7 +46,6 @@ function getNotes() {
   }).then(function(result) {
     console.log(result);
     displayNotes();
-    // run that function in here
   });
 }
 
@@ -63,7 +54,6 @@ getNotes();
 $(".submit-note").on("click", function(event) {
   event.preventDefault();
 
-  // Make a newChirp object
   var newNote = {
     title: $("#title")
       .val()
@@ -71,25 +61,13 @@ $(".submit-note").on("click", function(event) {
     body: $("#note-text")
       .val()
       .trim()
-    //   created_at: moment().format("YYYY-MM-DD HH:mm:ss")
   };
 
   console.log(newNote);
 
-  // Send an AJAX POST-request with jQuery
   $.post("/api/notes", newNote)
-    // On success, run the following code
     .then(function() {
-      // var row = $("<div>");
-      // row.addClass("savedNotes");
-
-      // row.append("<p>" + newNote.title + "</p>");
-      // row.append("<p>" + newNote.body + "</p>");
-      // //row.append("<p>At " + moment(newChirp.created_at).format("h:mma on dddd") + "</p>");
-
-      // $("#note-area").prepend(row);
       location.reload();
     });
 
-  // Empty each input box by replacing the value with an empty string
 });

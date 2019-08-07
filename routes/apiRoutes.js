@@ -2,7 +2,6 @@ var connection = require("../db/connection");
 var router = require("express").Router();
 
 router.get("/api/notes", function(req, res) {
-  // res.sendFile(path.join(__dirname, "notes.html"));
   connection.query("SELECT * FROM notes", function(err, data) {
     if (err) {
       return res.status(500).end();
