@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Note Taker</title>
-    <link rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/style.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -17,9 +16,9 @@
 
 <body>
 
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light navbarNote">
         <a class="navbar-brand" href="/notes">
-            <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30"
+            <img src="assets/_ionicons_svg_md-create.svg" width="30" height="30"
                 class="d-inline-block align-top" alt="">
             Note Taker
         </a>
@@ -27,38 +26,39 @@
 
     <div class="container-fluid noteContainer">
         <div class="row">
-          <div class="col-md-6 offset-md-3 list-container">
+            <!-- <div class="col-md-6 offset-md-3 list-container"> -->
+            <div class="col-md-12 list-container">
+                <div class="card noteCard" style="width: 30rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Save a Note</h5>
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Note Title</label>
+                                <input type="note" class="form-control" id="title" placeholder="Note Title">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1"></label>
+                                <textarea class="form-control" id="note-text" rows="3"
+                                    placeholder="Enter Note Text"></textarea>
+                            </div>
+                        </form>
+                        <button type="button" class="btn btn-outline-secondary submit-note">Save Note</button>
+                    </div>
+                </div>
+                <br>
 
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Save a Note</h5>
-                <form>
-                        <div class="form-group">
-                          <label for="exampleFormControlInput1">Note Title</label>
-                          <input type="note" class="form-control" id="title" placeholder="Note Title">
-                        </div>                     
-                        <div class="form-group">
-                          <label for="exampleFormControlTextarea1"></label>
-                          <textarea class="form-control" id="note-text" rows="3" placeholder="Enter Note Text"></textarea>
-                        </div>
-                      </form>
-                      <button type="button" class="btn btn-outline-secondary submit-note">Save Note</button>
+                <div class="row noteRow">
+                        <div class="col-md-12">
+                        <h2 id="notesCenter">Notes</h2>
+                        <hr>
+                        <div id="note-area"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-<br>
-
-    <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-          <h2>Notes</h2>
-          <hr>
-          <div id="note-area"></div>
-        </div>
-      </div>
-      </div>
-      </div>
-      </div>
 
 
-<script type="text/javascript" src="assets/app.js"></script>
+    <script type="text/javascript" src="assets/app.js"></script>
 
 </html>

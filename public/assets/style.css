@@ -1,6 +1,39 @@
-.noteContainer {
-    padding: 30px;
+body {
+    background: url(../assets/email-pattern.png)
 }
 
+.noteContainer {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
 
+#noteTitle {
+  font-weight: 900;
+}
 
+.jumbotronNote {
+    padding-top: 50px;
+    margin-top: 20px;
+}
+
+#notesCenter {
+    text-align: center;
+}
+
+.noteBody {
+  font-style: italic;
+}
+
+.noteRow {
+  padding: 20px;
+}
+
+.noteCard {
+  padding: 20px;
+}
+
+.savedNotes {
+  padding-top: 20px;
+}

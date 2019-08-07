@@ -9,10 +9,11 @@ function displayNotes() {
       for (var i = 0; i < data.length; i++) {
         var row = $("<div>");
         row.addClass("savedNotes");
-        row.append(`<div class="card" style="width: 18rem;">
-<div class="card-body>
-  <h5 class="card-title">${data[i].title}</h5>
-  <p class="card-text">${data[i].body}</p>
+        row.append(`<div class="card" style="width: 28rem;">
+<div class="card-body">
+  <h5 id="noteTitle" class="card-title">${data[i].title}</h5>
+  
+  <p class="card-text noteBody">${data[i].body}</p>
   <button type="button" class="btn btn-outline-secondary delete-note" data-id="${data[i].id}">Delete</button>
 </div>
 </div>`);
