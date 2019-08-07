@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS notetaker_db;
-CREATE DATABASE notetaker_db;
+DROP DATABASE IF EXISTS ie2ndyyfnfno7vmj;
+CREATE DATABASE ie2ndyyfnfno7vmj;
 
-USE notetaker_db;
+USE ie2ndyyfnfno7vmj;
 
 CREATE TABLE notes (
   id INT NOT NULL AUTO_INCREMENT,
